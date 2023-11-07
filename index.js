@@ -13,7 +13,7 @@ const requestTokens = async (code) => {
     "&client_secret=" +
     "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" +
     "&redirect_uri=" +
-    "http://localhost:3000/auth" +
+    "https://auth-web-service-o3kg.onrender.com/auth" +
     "&grant_type=authorization_code";
 
   const response = await axios.post(
@@ -128,9 +128,7 @@ app.use(express.json());
 // Call middleware, storing a reference to it:
 const middle = express.urlencoded({ extended: false })
 app.post("/refresh-token",middle, async (req, res) => {
-  console. log('1111',req);
   const body = req.body;
-  console.log(req);
 
   if (body) {
     try {
