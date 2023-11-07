@@ -125,8 +125,10 @@ app.get("/auth", async (req, res) => {
   }
 });
 app.use(express.json());
-app.post("/refresh-token", async (req, res) => {
-  console. log('1111',req.body);
+// Call middleware, storing a reference to it:
+const middle = express.urlencoded({ extended: false })
+app.post("/refresh-token",middle, async (req, res) => {
+  console. log('1111',req);
   const body = req.body;
   console.log(req);
 
